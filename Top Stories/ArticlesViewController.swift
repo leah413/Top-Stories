@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ArticlesViewController.swift
 //  Top Stories
 //
 //  Created by Leah Nella on 7/9/19.
@@ -7,35 +7,36 @@
 //
 
 import UIKit
-
-class SourcesViewController: UITableViewController {
-    var sources = [[String: String]]()
-    let apiKey = "5d892509a49046a087917c466fa80d09"
+class ArticlesViewController: UITableViewController {
+    var articles = [[String: String]]()
+    var apiKey = ""
+    var source = [String: String] ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "News Sources"
-        let query = "https://newsapi.org/v1/sources?language=en&country=us&apiKey=\(apiKey)"
+        self.title = "Top Stories"
+        let query =  "https://newsapi.org/v1/articles?" + "source=\(source["id"]!)&apiKey=\(apiKey)"
         DispatchQueue.global(qos: .userInitiated).async {
             [unowned self] in
-        if let url = URL(string: query) {
-            if let data = try? Data(contentsOf: url) {
-                let json = try! JSON(data: data)
-                if json["status"] == "ok" {
-                    self.parse(json: json)
-                    return
+            if let url = URL(string: query) {
+                if let data = try? Data(contentsOf: url) {
+                    let json = try! JSON(data: data)
+                    if json["status"] == "ok" {
+                        self.parse(json: json)
+                        return
+                    }
                 }
             }
-        }
-       self.loadError()
+            self.loadError()
         }
     }
     func parse(json: JSON) {
-        for result in json["sources"].arrayValue {
-            let id = result["id"].stringValue
-            let name = result["name"].stringValue
+        for result in json["articles"].arrayValue {
+            let title = result["title"].stringValue
             let description = result["description"].stringValue
-            let source = ["id": id, "name": name, "description": description]
-            sources.append(source)
+            let url = result["url"].stringValue
+            let article = ["title": title, "description": description, "url": url]
+            articles.append(article)
         }
         DispatchQueue.main.async {
             [unowned self] in
@@ -51,16 +52,17 @@ class SourcesViewController: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section : Int) -> Int {
-        return sources.count
+        return articles.count
     }
     
     override func tableView(_ _tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            let source = sources[indexPath.row]
-            cell.textLabel?.text = source["name"]
-            cell.detailTextLabel?.text = source["description"]
-            return cell
+        let article = articles[indexPath.row]
+        cell.textLabel?.text = source["title"]
+        cell.detailTextLabel?.text = source["description"]
+        return cell
     }
-
+    
 }
+
 

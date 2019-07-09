@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AB3FB2822D4E86800DE657E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FB2722D4E86800DE657E /* SwiftyJSON.swift */; };
+		4AB3FB2A22D4F52900DE657E /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FB2922D4F52900DE657E /* ArticlesViewController.swift */; };
 		4AD06DDA22D4E59500377437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06DD922D4E59500377437 /* AppDelegate.swift */; };
 		4AD06DDC22D4E59500377437 /* SourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06DDB22D4E59500377437 /* SourcesViewController.swift */; };
 		4AD06DDF22D4E59500377437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD06DDD22D4E59500377437 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		4AB3FB2722D4E86800DE657E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		4AB3FB2922D4F52900DE657E /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		4AD06DD622D4E59500377437 /* Top Stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top Stories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD06DD922D4E59500377437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AD06DDB22D4E59500377437 /* SourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				4AD06DD922D4E59500377437 /* AppDelegate.swift */,
 				4AD06DDB22D4E59500377437 /* SourcesViewController.swift */,
 				4AD06DDD22D4E59500377437 /* Main.storyboard */,
+				4AB3FB2922D4F52900DE657E /* ArticlesViewController.swift */,
 				4AD06DE022D4E59500377437 /* Assets.xcassets */,
 				4AD06DE222D4E59500377437 /* LaunchScreen.storyboard */,
 				4AD06DE522D4E59500377437 /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB3FB2822D4E86800DE657E /* SwiftyJSON.swift in Sources */,
+				4AB3FB2A22D4F52900DE657E /* ArticlesViewController.swift in Sources */,
 				4AD06DDC22D4E59500377437 /* SourcesViewController.swift in Sources */,
 				4AD06DDA22D4E59500377437 /* AppDelegate.swift in Sources */,
 			);
