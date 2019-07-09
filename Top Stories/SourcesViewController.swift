@@ -34,21 +34,28 @@ class SourcesViewController: UITableViewController {
             let source = ["id": id, "name": name, "description": description]
             sources.append(source)
         }
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            [unowned self] in
+            self.tableView.reloadData()
+        }
     }
     func loadError() {
-        let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the news feed", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            [unowned self] in
+            let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the news feed", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section : Int) -> Int {
         return sources.count
     }
     
     override func tableView(_ _tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             let source = sources[indexPath.row]
             cell.textLabel?.text = source["name"]
+            cell.detailTextLabel?.text = source["description"]
             return cell
     }
 
